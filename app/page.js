@@ -1,113 +1,192 @@
-import Image from "next/image";
+"use client"
+import { Button } from "@/components/ui/button"
+import Typed from 'typed.js';
+import React, {useRef, useEffect} from 'react';
 
 export default function Home() {
+    // Create reference to store the DOM element containing the animation
+    const el = useRef(null);
+
+    useEffect(() => {
+      const typed = new Typed(el.current, {
+        strings: ['Coding', 'Web Development', 'Software Engineering', 'Data Science', 'Machine Learning'],
+        typeSpeed: 50,
+      });
+  
+      return () => {
+        // Destroy Typed instance during cleanup to stop animation
+        typed.destroy();
+      };
+    }, []); 
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <section className="container px-4 py-10 mx-auto lg:h-128 lg:space-x-8 lg:flex lg:items-center">
+        <div className="w-full text-center lg:text-left lg:w-1/2 lg:-mt-8">
+          <h1 className="text-3xl leading-snug text-gray-800 dark:text-gray-200 md:text-4xl">
+            A <span className="font-semibold">free repository</span> for community <br className="hidden lg:block" /> components using <span className="font-semibold underline decoration-primary"><span ref={el} /></span>
+          </h1>
+          <p className="mt-4 text-lg text-gray-500 dark:text-gray-300">
+            Open source Tailwind UI components and templates to <br className="hidden lg:block" /> bootstrap your new apps, projects or landing sites!
+          </p>
+          <div className="mt-6 bg-transparent border rounded-lg dark:border-gray-700 lg:w-2/3 focus-within:border-primary focus-within:ring focus-within:ring-primary dark:focus-within:border-primary focus-within:ring-opacity-20">
+            <form action="https://www.creative-tim.com/twcomponents/search" className="flex flex-wrap justify-between md:flex-row">
+             
+            </form>
+          </div>
+        </div>
+        <div className="w-full mt-4 lg:mt-0 lg:w-1/2">
+          <img src="https://www.creative-tim.com/twcomponents/svg/website-designer-bro-purple.svg" alt="tailwind css components" className="w-full h-full max-w-md mx-auto" />
+        </div>
+      </section>
+
+<section className="py-12 bg-gray-100 dark:bg-gray-900">
+  <div className="container px-4 mx-auto">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200">Pricing Plans</h2>
+      <p className="mt-4 text-lg text-gray-500 dark:text-gray-300">Choose the plan that suits you best</p>
+    </div>
+    <div className="flex flex-wrap justify-center">
+      {/* Basic Plan */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105 text-center">
+          <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">Basic</h3>
+          <p className="mt-4 text-gray-500 dark:text-gray-300">$10/month</p>
+          <ul className="mt-6 mb-6 space-y-4">
+            <li className="text-gray-600 dark:text-gray-400"><s>10GB Storage</s></li>
+            <li className="text-gray-600 dark:text-gray-400"><s>Basic Support</s></li>
+            <li className="text-gray-600 dark:text-gray-400"><s>Single User</s></li>
+            <li className="text-gray-600 dark:text-gray-400">Community Access</li>
+            <li className="text-gray-600 dark:text-gray-400">Weekly Updates</li>
+          </ul>
+          <Button className="mx-1" variant="outline">Choose Plan</Button>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      {/* Standard Plan */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105 text-center border-2 border-purple-500">
+          <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">Standard</h3>
+          <p className="mt-4 text-gray-500 dark:text-gray-300">$20/month</p>
+          <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-purple-500 rounded-full">Bestseller</span>
+          <ul className="mt-6 mb-6 space-y-4">
+            <li className="text-gray-600 dark:text-gray-400">50GB Storage</li>
+            <li className="text-gray-600 dark:text-gray-400">Priority Support</li>
+            <li className="text-gray-600 dark:text-gray-400">Up to 5 Users</li>
+            <li className="text-gray-600 dark:text-gray-400">Community Access</li>
+            <li className="text-gray-600 dark:text-gray-400">Daily Updates</li>
+          </ul>
+          <Button className="mx-1" variant="outline">Choose Plan</Button>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      {/* Premium Plan */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105 text-center">
+          <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">Premium</h3>
+          <p className="mt-4 text-gray-500 dark:text-gray-300">$30/month</p>
+          <ul className="mt-6 mb-6 space-y-4">
+            <li className="text-gray-600 dark:text-gray-400">200GB Storage</li>
+            <li className="text-gray-600 dark:text-gray-400">24/7 Support</li>
+            <li className="text-gray-600 dark:text-gray-400">Unlimited Users</li>
+            <li className="text-gray-600 dark:text-gray-400">Community Access</li>
+            <li className="text-gray-600 dark:text-gray-400">Real-time Updates</li>
+          </ul>
+          <Button className="mx-1" variant="outline">Choose Plan</Button>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+
+ <section className="py-12 bg-white dark:bg-gray-900">
+  <div className="container px-4 mx-auto">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200">What Our Clients Say</h2>
+      <p className="mt-4 text-lg text-gray-500 dark:text-gray-300">Hear from our satisfied customers</p>
+    </div>
+    <div className="flex flex-wrap justify-center">
+      {/* Testimonial 1 */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105 text-center">
+          <p className="text-gray-600 dark:text-gray-400">"This service has been a game-changer for our business. Highly recommend!"</p>
+          <h3 className="mt-4 text-xl font-semibold text-gray-800 dark:text-gray-200">John Doe</h3>
+          <p className="text-gray-500 dark:text-gray-300">CEO, Company A</p>
+        </div>
+      </div>
+      {/* Testimonial 2 */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105 text-center">
+          <p className="text-gray-600 dark:text-gray-400">"Amazing experience! The team was professional and the results were outstanding."</p>
+          <h3 className="mt-4 text-xl font-semibold text-gray-800 dark:text-gray-200">Jane Smith</h3>
+          <p className="text-gray-500 dark:text-gray-300">Marketing Director, Company B</p>
+        </div>
+      </div>
+      {/* Testimonial 3 */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105 text-center">
+          <p className="text-gray-600 dark:text-gray-400">"Exceptional service and support. We couldn't be happier with the results."</p>
+          <h3 className="mt-4 text-xl font-semibold text-gray-800 dark:text-gray-200">Michael Brown</h3>
+          <p className="text-gray-500 dark:text-gray-300">CTO, Company C</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section className="py-12 bg-gray-100 dark:bg-gray-900">
+  <div className="container px-4 mx-auto">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200">Top Blogs</h2>
+      <p className="mt-4 text-lg text-gray-500 dark:text-gray-300">Check out our most popular blog posts</p>
+    </div>
+    <div className="flex flex-wrap justify-center">
+      {/* Blog 1 */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105">
+          <img src="/typescript.webp" className="w-full h-64 object-cover rounded-t-lg"/>
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">Blog Post Title 1</h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">A brief description of the blog post goes here. It should be engaging and informative.</p>
+            <Button className="m-2" variant="outline" href="/blog-post-1">Read More</Button>
+          </div>
+        </div>
+      </div>
+      {/* Blog 2 */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105">
+          <img src="https://images.pexels.com/photos/1181472/pexels-photo-1181472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Blog 2" className="w-full h-64 object-cover rounded-t-lg"/>
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">Blog Post Title 2</h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">A brief description of the blog post goes here. It should be engaging and informative.</p>
+            <Button className="m-2" variant="outline" href="/blog-post-2">Read More</Button>
+          </div>
+        </div>
+      </div>
+      {/* Blog 3 */}
+      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        <div className="p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-500 hover:scale-105">
+          <img src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg" alt="Blog 3" className="w-full h-64 object-cover rounded-t-lg"/>
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">Blog Post Title 3</h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">A brief description of the blog post goes here. It should be engaging and informative.</p>
+            <Button className="m-2" variant="outline" href="/blog-post-3">Read More</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </main>
   );
-}
+};
+
+
+
+
+
+
+
+
